@@ -1,6 +1,6 @@
 extends Node
 
-signal item_added
+signal inventory_changed
 
 var space = []
 var quantities = {}
@@ -15,4 +15,24 @@ func add_item(item, quantity = 1):
 		space.push_back(item)
 		quantities[item] = quantity
 
-	emit_signal("item_added")
+	emit_signal("inventory_changed")
+
+func remove_item(item, quantity = 1):
+	assert(quantity >= 1)
+
+	if !space.has(item):
+		return false
+
+	assert(quantities.has(item))
+
+	if quantities[item] < quantity:
+		return false
+	
+	quantities[item] -= quantity
+
+	if quantities[item] == 0:
+		space.erase(item)
+		quantities.erase(item)
+
+	emit_signal("inventory_changed")
+	return true

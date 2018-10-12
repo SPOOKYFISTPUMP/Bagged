@@ -4,9 +4,9 @@ var label = preload("res://DefaultLabel.tscn")
 
 func _ready():
 	handle_labels()
-	Inventory.connect("item_added", self, "_on_item_added")
+	Inventory.connect("inventory_changed", self, "_on_inventory_changed")
 
-func _on_item_added():
+func _on_inventory_changed():
 	handle_labels()
 
 func handle_labels():
@@ -25,4 +25,3 @@ func handle_labels():
 		var plural = quantity > 1
 		new_label.text = str(quantity) + "x " + item.title + ("s" if plural else "")
 		$MarginContainer/VBoxContainer.add_child(new_label)
-		print("Sidn driN!")

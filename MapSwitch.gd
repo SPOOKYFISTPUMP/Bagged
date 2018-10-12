@@ -1,7 +1,7 @@
 extends "res://Interactable.gd"
 
-export(PackedScene) var map
+export(String, FILE) var map
 
 func interact():
 	assert(map)
-	get_tree().change_scene_to(map)
+	get_tree().change_scene(map)
