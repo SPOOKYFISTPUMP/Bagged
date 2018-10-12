@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Map.tres" type="TileSet" id=1]
+[ext_resource path="res://Collisions.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Camera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://InventoryInterface.tscn" type="PackedScene" id=5]
+
+[node name="BaseMap" type="Node"]
+
+[node name="Map" type="TileMap" parent="."]
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = false
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray(  )
+_sections_unfolded = [ "Cell", "tile_set" ]
+
+[node name="Collisions" parent="." instance=ExtResource( 2 )]
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+
+[node name="Camera" parent="." instance=ExtResource( 4 )]
+
+[node name="InventoryInterface" parent="." instance=ExtResource( 5 )]
+

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://MapSwitch.gd" type="Script" id=2]
+
+[node name="MapSwitch" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+map = null
+
