@@ -21,6 +21,8 @@ func handle_labels():
 	# add all the labels
 	for item in Inventory.space:
 		var new_label = label.instance()
-		new_label.text = str(Inventory.quantities[item]) + "x " + item.title
+		var quantity = Inventory.quantities[item]
+		var plural = quantity > 1
+		new_label.text = str(quantity) + "x " + item.title + ("s" if plural else "")
 		$MarginContainer/VBoxContainer.add_child(new_label)
 		print("Sidn driN!")
