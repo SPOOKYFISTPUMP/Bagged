@@ -1,31 +1,13 @@
 [remap]
 
-importer="texture"
-type="StreamTexture"
-path="res://.import/jam_no_II.png-368710d4eedb6c82d287ee17db7d4f25.stex"
+importer="image"
+type="Image"
+path="res://.import/jam_no_II.png-368710d4eedb6c82d287ee17db7d4f25.image"
 
 [deps]
 
 source_file="res://jam_no_II.png"
-dest_files=[ "res://.import/jam_no_II.png-368710d4eedb6c82d287ee17db7d4f25.stex" ]
+dest_files=[ "res://.import/jam_no_II.png-368710d4eedb6c82d287ee17db7d4f25.image" ]
 
 [params]
 
-compress/mode=0
-compress/lossy_quality=0.7
-compress/hdr_mode=0
-compress/bptc_ldr=0
-compress/normal_map=0
-flags/repeat=0
-flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
-flags/srgb=2
-process/fix_alpha_border=true
-process/premult_alpha=false
-process/HDR_as_SRGB=false
-process/invert_color=false
-stream=false
-size_limit=0
-detect_3d=true
-svg/scale=1.0

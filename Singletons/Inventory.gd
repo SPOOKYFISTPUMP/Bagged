@@ -5,6 +5,11 @@ signal inventory_changed
 var space = []
 var quantities = {}
 
+var mysterious_item = preload("res://Items/Mysterious Item.tres")
+
+func _ready():
+	add_item(mysterious_item)
+
 func add_item(item, quantity = 1):
 	assert(quantity >= 1)
 

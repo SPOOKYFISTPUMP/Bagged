@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Map.tres" type="TileSet" id=1]
 [ext_resource path="res://Collisions.tscn" type="PackedScene" id=2]
@@ -6,8 +6,9 @@
 [ext_resource path="res://Camera.tscn" type="PackedScene" id=4]
 [ext_resource path="res://InventoryInterface.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Collectible.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Apple.tres" type="Resource" id=7]
-[ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Items/Apple.tres" type="Resource" id=7]
+[ext_resource path="res://Items/Sword.tres" type="Resource" id=8]
+[ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=9]
 
 [node name="Main" type="Node"]
 
@@ -32,7 +33,7 @@ tile_data = PoolIntArray( -589832, 2, 0, -589831, 2, 0, -589830, 2, 0, -589829, 
 _sections_unfolded = [ "Cell" ]
 
 [node name="Collisions" parent="." instance=ExtResource( 2 )]
-tile_data = PoolIntArray( -524289, 0, 0, -589824, 0, 0, -458754, 0, 0, -524287, 0, 0, -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -327689, 0, 0, -393208, 0, 0, -262153, 0, 0, -327672, 0, 0, -196617, 0, 0, -262136, 0, 0, -131081, 0, 0, -196600, 0, 0, -65545, 0, 0, -131064, 0, 0, -9, 0, 0, -65528, 0, 0, 65527, 0, 0, 8, 0, 0, 131063, 0, 0, 65544, 0, 0, 196599, 0, 0, 131080, 0, 0, 262135, 0, 0, 196616, 0, 0, 327671, 0, 0, 262152, 0, 0, 393207, 0, 0, 327688, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0 )
+tile_data = PoolIntArray( -393224, 0, 0, -393223, 0, 0, -393222, 0, 0, -393221, 0, 0, -393220, 0, 0, -393219, 0, 0, -393218, 0, 0, -393217, 0, 0, -458752, 0, 0, -458751, 0, 0, -458750, 0, 0, -458749, 0, 0, -458748, 0, 0, -458747, 0, 0, -458746, 0, 0, -458745, 0, 0, -327689, 0, 0, -393208, 0, 0, -262153, 0, 0, -327672, 0, 0, -196617, 0, 0, -262136, 0, 0, -131081, 0, 0, -196600, 0, 0, -65545, 0, 0, -131064, 0, 0, -9, 0, 0, -65528, 0, 0, 65527, 0, 0, 8, 0, 0, 131063, 0, 0, 65544, 0, 0, 196599, 0, 0, 131080, 0, 0, 262135, 0, 0, 196616, 0, 0, 327671, 0, 0, 262152, 0, 0, 393207, 0, 0, 327688, 0, 0, 458744, 0, 0, 458745, 0, 0, 458746, 0, 0, 458747, 0, 0, 458748, 0, 0, 458749, 0, 0, 458750, 0, 0, 458751, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393223, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 
@@ -41,18 +42,22 @@ tile_data = PoolIntArray( -524289, 0, 0, -589824, 0, 0, -458754, 0, 0, -524287, 
 [node name="InventoryInterface" parent="." instance=ExtResource( 5 )]
 
 [node name="Collectible" parent="." instance=ExtResource( 6 )]
-position = Vector2( 90, 0 )
+position = Vector2( -84.0274, 42.9109 )
 item = ExtResource( 7 )
 
 [node name="Collectible2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -90, 0 )
+position = Vector2( -88.6378, 49.7221 )
 item = ExtResource( 7 )
 
 [node name="Collectible3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 0, 60 )
+position = Vector2( -76.286, 50.1237 )
 item = ExtResource( 7 )
 
-[node name="MapSwitch" parent="." instance=ExtResource( 8 )]
+[node name="Collectible4" parent="." instance=ExtResource( 6 )]
+position = Vector2( -25.5422, 49.3816 )
+item = ExtResource( 8 )
+
+[node name="MapSwitch" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -110 )
 map = "res://Something'sInMyWay.tscn"
 

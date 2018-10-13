@@ -2,7 +2,7 @@
 
 [ext_resource path="res://BaseMap.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Obstacle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Apple.tres" type="Resource" id=3]
+[ext_resource path="res://Items/Apple.tres" type="Resource" id=3]
 [ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=4]
 
 [node name="Something'sInMyWay" instance=ExtResource( 1 )]

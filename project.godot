@@ -30,6 +30,7 @@ config/icon="res://player.png"
 Shortcuts="*res://Singletons/Shortcuts.gd"
 Game="*res://Singletons/Game.gd"
 Inventory="*res://Singletons/Inventory.gd"
+DialogueBox="*res://Singletons/DialogueBox.tscn"
 
 [display]
 

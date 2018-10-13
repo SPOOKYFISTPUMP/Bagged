@@ -3,12 +3,10 @@ extends KinematicBody2D
 const MOVEMENT_SPEED = 10
 var initial_x_scale
 
-func _init():
-	print($Sprite)
+func _ready():
+	initial_x_scale = $Sprite.scale.x
 
 func _process(delta):
-	if !initial_x_scale:
-		initial_x_scale = $Sprite.scale.x
 	handle_movement(delta)
 
 func handle_movement(delta):
@@ -32,7 +30,10 @@ func handle_movement(delta):
 
 func get_input_vector():
 	var input_vector = Vector2()
-	
+
+	if !Game.can_move():
+		return input_vector
+
 	if Input.is_action_pressed("ui_up"):
 		input_vector.y -= 1
 	if Input.is_action_pressed("ui_right"):
