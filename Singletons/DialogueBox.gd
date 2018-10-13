@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+signal closed
+
 export(Array) var dialogue_queue = []
 var dialogue_done = true
 
@@ -56,6 +58,12 @@ func _on_Tween_tween_completed(object, key):
 	$Panel/CenterContainer/DialogueArrow.visible = true
 
 func end_dialogue():
-	Game.state = state_before
+	if state_before == Game.States.Cutscene:
+		Game.state = Game.States.Explore
+	else:
+		Game.state = state_before
+
 	$Panel/MarginContainer/VBoxContainer/Says.percent_visible = 0
 	$Panel.visible = false
+
+	emit_signal("closed")

@@ -31,11 +31,11 @@ func intro():
 
 	yield(get_tree().create_timer(1), "timeout")
 	player.flip(-1)
-	yield(get_tree().create_timer(.5), "timeout")
+	yield(get_tree().create_timer(.3), "timeout")
 	player.flip(1)
-	yield(get_tree().create_timer(.5), "timeout")
+	yield(get_tree().create_timer(.3), "timeout")
 	player.flip(-1)
-	yield(get_tree().create_timer(.5), "timeout")
+	yield(get_tree().create_timer(.3), "timeout")
 
 	DialogueBox.dialogue_queue.push_back({
 		"who": "MaxMustermann",

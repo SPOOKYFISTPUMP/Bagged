@@ -88,3 +88,7 @@ func _on_Inspect_pressed():
 		"who": space[index].title,
 		"says": space[index].description,
 	})
+
+	$CenterContainer.visible = false
+	yield(DialogueBox, "closed")
+	$CenterContainer.visible = true
