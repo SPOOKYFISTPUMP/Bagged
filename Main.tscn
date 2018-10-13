@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Map.tres" type="TileSet" id=1]
 [ext_resource path="res://Collisions.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Obstacle.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Readable.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Button.tscn" type="PackedScene" id=11]
 
 [node name="Main" type="Node"]
 
@@ -70,4 +71,11 @@ needed_item_amount = 1
 [node name="Schild" parent="." instance=ExtResource( 10 )]
 position = Vector2( 90, -100 )
 _sections_unfolded = [ "Script", "things_to_say" ]
+
+[node name="Button" parent="." instance=ExtResource( 11 )]
+position = Vector2( -80, -60 )
+
+[node name="Button2" parent="." instance=ExtResource( 11 )]
+position = Vector2( -60, -60 )
+pressed = true
 

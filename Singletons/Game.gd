@@ -42,6 +42,9 @@ func intro():
 		"says": "Where am I?"
 	})
 
+	yield(DialogueBox, "closed")
+	state = Explore
+
 func switch_map(map):
 	map_before = get_tree().current_scene.filename
 	get_tree().change_scene(map)
@@ -72,3 +75,19 @@ func can_move():
 
 func can_interact():
 	return can_act()
+
+func button_press():
+	var doors = get_tree().get_nodes_in_group("Door")
+
+	for door in doors:
+		var door_path = str(door.get_path())
+		if Database.door_logic.has(door_path):
+			var buttons = Database.door_logic[door_path]
+			var valid = true
+
+			for button_path in buttons:
+				if get_node(button_path).pressed != buttons[button_path]:
+					valid = false
+			
+			if valid:
+				door.open()

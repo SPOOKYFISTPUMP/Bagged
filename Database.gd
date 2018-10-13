@@ -13,3 +13,12 @@ export(Dictionary) var dialogues = {
 		},
 	]
 }
+
+export(Dictionary) var door_logic = {
+	"/root/RocketScience/Doors/Door": {
+		"/root/RocketScience/Buttons/Button": true,
+		"/root/RocketScience/Buttons/Button2": true,
+		"/root/RocketScience/Buttons/Button3": true,
+		"/root/RocketScience/Buttons/Button4": true,
+	}
+}
