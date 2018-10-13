@@ -8,8 +8,8 @@
 [ext_resource path="res://Items/Apple.tres" type="Resource" id=6]
 [ext_resource path="res://Items/Knife.tres" type="Resource" id=7]
 [ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Readable.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Obstacle.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Obstacle.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Readable.tscn" type="PackedScene" id=10]
 
 [node name="Main" type="Node"]
 
@@ -62,20 +62,12 @@ item = ExtResource( 7 )
 position = Vector2( 0, -110 )
 map = "res://Something'sInMyWay.tscn"
 
-[node name="Readable" parent="." instance=ExtResource( 9 )]
-position = Vector2( 90, -100 )
-_sections_unfolded = [ "Script", "things_to_say" ]
-things_to_say = [ {
-"says": "ok",
-"who": "Schild"
-}, {
-"says": "I don't know where we are",
-"speed": 0.2,
-"who": "Schild"
-} ]
-
-[node name="Obstacle" parent="." instance=ExtResource( 10 )]
+[node name="Obstacle" parent="." instance=ExtResource( 9 )]
 position = Vector2( 0, -112 )
 needed_item = ExtResource( 7 )
 needed_item_amount = 1
+
+[node name="Schild" parent="." instance=ExtResource( 10 )]
+position = Vector2( 90, -100 )
+_sections_unfolded = [ "Script", "things_to_say" ]
 

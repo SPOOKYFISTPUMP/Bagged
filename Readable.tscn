@@ -6,7 +6,6 @@
 
 [node name="Readable" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-things_to_say = [  ]
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 3 )

@@ -15,6 +15,7 @@ _global_script_classes=[ {
 "path": "res://Items/Item.gd"
 } ]
 _global_script_class_icons={
+"Dialogue": "",
 "Item": ""
 }
 

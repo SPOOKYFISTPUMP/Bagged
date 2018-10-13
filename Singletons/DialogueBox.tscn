@@ -72,7 +72,6 @@ __meta__ = {
 }
 
 [node name="MarginContainer" type="MarginContainer" parent="Panel"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -90,13 +89,12 @@ size_flags_vertical = 1
 _sections_unfolded = [ "Margin" ]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel/MarginContainer"]
-editor/display_folded = true
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 260.0
-margin_bottom = 55.0
+margin_bottom = 54.0
 rect_pivot_offset = Vector2( 0, 0 )
 rect_clip_content = false
 mouse_filter = 1
@@ -118,7 +116,6 @@ margin_bottom = 55.0
 rect_min_size = Vector2( 260, 35 )
 text = "Things to say Things to say Things to say Things to say Things to say "
 autowrap = true
-percent_visible = 0.0
 max_lines_visible = 2
 _sections_unfolded = [ "Rect", "custom_fonts", "custom_fonts/font" ]
 
