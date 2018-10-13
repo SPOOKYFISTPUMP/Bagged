@@ -16,8 +16,6 @@ func handle_labels():
 	for label in labels:
 		label.queue_free()
 
-	print(Inventory.space)
-
 	# add all the labels
 	for item in Inventory.space:
 		var new_label = label.instance()
