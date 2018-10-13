@@ -29,6 +29,7 @@ config/icon="res://player.png"
 [autoload]
 
 Shortcuts="*res://Singletons/Shortcuts.gd"
+Database="*res://Database.gd"
 Game="*res://Singletons/Game.gd"
 Inventory="*res://Singletons/Inventory.tscn"
 DialogueBox="*res://Singletons/DialogueBox.tscn"

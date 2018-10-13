@@ -8,7 +8,7 @@ enum States {
 	Dialogue # Talking to someone
 	AutomaticDialogue # e.g. "You cut the wire", you can move during that
 }
-var state = NONE
+var state = NONE setget set_state
 
 var flags = []
 var map_before
@@ -20,6 +20,9 @@ func _ready():
 
 func _node(string):
 	return get_tree().current_scene.get_node(string)
+
+func set_state(new_state):
+	state = new_state
 
 func intro():
 	state = Cutscene

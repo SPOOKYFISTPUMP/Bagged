@@ -65,5 +65,26 @@ func display_inventory():
 		item_list.add_item(text, item.image)
 
 func _on_Close_pressed():
+	if !Game.state == Game.States.Inventory:
+		return
+
 	$CenterContainer.visible = false
 	Game.state = Game.States.Explore
+
+func _on_Inspect_pressed():
+	if !Game.state == Game.States.Inventory:
+		return
+
+	var item_list = $CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ItemList
+	var selected = item_list.get_selected_items()
+	var index
+
+	if selected.size():
+		index = selected[0]
+	else:
+		return
+
+	DialogueBox.dialogue_queue.push_back({
+		"who": space[index].title,
+		"says": space[index].description,
+	})

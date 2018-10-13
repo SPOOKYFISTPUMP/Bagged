@@ -8,7 +8,7 @@
 script = ExtResource( 2 )
 _sections_unfolded = [ "Script" ]
 title = "Apple"
-description = "This is a cool apple"
+description = "This is an cool apple"
 image = ExtResource( 1 )
 stackable = true
 

@@ -1,6 +1,6 @@
-extends Reference
+extends Node
 
-export(Dictionary) var library = {
+export(Dictionary) var dialogues = {
 	"/root/Main/Schild": [
 		{
 			"who": "Schild",
@@ -9,7 +9,7 @@ export(Dictionary) var library = {
 		{
 			"who": "Schild",
 			"says": "Hallo, ich bin immer noch hier!",
-			"speed": 5,
+			"speed": .1,
 		},
 	]
 }
