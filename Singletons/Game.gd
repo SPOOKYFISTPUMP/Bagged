@@ -3,6 +3,7 @@ extends Node
 enum States {
 	NONE # this shouldn't be boy
 	Cutscene
+	Inventory
 	Explore # Walking around, interacting and stuff
 	Dialogue # Talking to someone
 	AutomaticDialogue # e.g. "You cut the wire", you can move during that

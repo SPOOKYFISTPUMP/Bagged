@@ -29,7 +29,7 @@ config/icon="res://player.png"
 
 Shortcuts="*res://Singletons/Shortcuts.gd"
 Game="*res://Singletons/Game.gd"
-Inventory="*res://Singletons/Inventory.gd"
+Inventory="*res://Singletons/Inventory.tscn"
 DialogueBox="*res://Singletons/DialogueBox.tscn"
 
 [display]
@@ -107,6 +107,11 @@ ui_reload={
 ui_interact={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
+ui_inventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"unicode":0,"echo":false,"script":null)
  ]
 }
 

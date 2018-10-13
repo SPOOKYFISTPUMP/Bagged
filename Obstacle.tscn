@@ -10,7 +10,9 @@
 custom_solver_bias = 0.0
 extents = Vector2( 16, 16 )
 
-[node name="Obstacle" instance=ExtResource( 1 )]
+[node name="Obstacle" groups=[
+"Obstacle",
+] instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 needed_item = null
 needed_item_amount = null
@@ -34,6 +36,7 @@ texture = ExtResource( 3 )
 visible = false
 
 [node name="DefaultLabel" parent="." index="3" instance=ExtResource( 4 )]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -105.0

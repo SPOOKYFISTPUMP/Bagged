@@ -11,7 +11,6 @@ func _ready():
 	assert(needed_item_amount >= 1)
 
 	$InteractionArrow.visible = true
-	$DefaultLabel.visible = false
 	$DefaultLabel.set_label(needed_item.title, needed_item_amount, " needed")
 
 func interact():
