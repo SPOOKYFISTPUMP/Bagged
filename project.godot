@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Bagged"
 run/main_scene="res://Main.tscn"
 boot_splash/image="res://jam_no_II.png"
-config/icon="res://icon.png"
+config/icon="res://player.png"
 
 [autoload]
 
