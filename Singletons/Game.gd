@@ -2,6 +2,7 @@ extends Node
 
 enum States {
 	NONE # this shouldn't be boy
+	Cutscene
 	Explore # Walking around, interacting and stuff
 	Dialogue # Talking to someone
 	AutomaticDialogue # e.g. "You cut the wire", you can move during that
@@ -12,8 +13,30 @@ var flags = []
 var map_before
 
 func _ready():
-	if get_tree().current_scene.get_node("Player"):
+	if _node("Player"):
 		state = Explore
+		# intro()
+
+func _node(string):
+	return get_tree().current_scene.get_node(string)
+
+func intro():
+	state = Cutscene
+
+	var player = _node("Player")
+
+	yield(get_tree().create_timer(1), "timeout")
+	player.flip(-1)
+	yield(get_tree().create_timer(.5), "timeout")
+	player.flip(1)
+	yield(get_tree().create_timer(.5), "timeout")
+	player.flip(-1)
+	yield(get_tree().create_timer(.5), "timeout")
+
+	DialogueBox.dialogue_queue.push_back({
+		"who": "MaxMustermann",
+		"says": "Where am I?"
+	})
 
 func switch_map(map):
 	map_before = get_tree().current_scene.filename
@@ -27,7 +50,7 @@ func switch_map(map):
 
 	for mapswitch_node in mapswitch_nodes:
 		if mapswitch_node.map == map_before:
-			get_tree().current_scene.get_node("Player").position = mapswitch_node.position + Vector2(0, 32)
+			_node("Player").position = mapswitch_node.position + Vector2(0, 32)
 
 func consumed(node):
 	assert(!was_consumed(node))

@@ -3,18 +3,6 @@ extends CanvasLayer
 export(Array) var dialogue_queue = []
 var dialogue_done = true
 
-func _ready():
-	dialogue_queue.push_back({
-		"who": "OK",
-		"says": "nice",
-		"speed": 3
-	})
-	dialogue_queue.push_back({
-		"who": "OK",
-		"says": "nice even nicer",
-		"speed": .1
-	})
-
 func _process(delta):
 	if !$Panel.visible && dialogue_queue.size():
 		var dialogue = dialogue_queue.pop_front()
@@ -48,4 +36,5 @@ func _on_Tween_tween_completed(object, key):
 
 func end_dialogue():
 	Game.state = Game.States.Explore
+	$Panel/MarginContainer/VBoxContainer/Says.percent_visible = 0
 	$Panel.visible = false

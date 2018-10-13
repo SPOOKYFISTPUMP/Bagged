@@ -76,9 +76,11 @@ playback/speed = 1.0
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
+z_index = 10
+z_as_relative = false
 texture = ExtResource( 2 )
 offset = Vector2( 0, -3 )
-_sections_unfolded = [ "Offset", "Transform" ]
+_sections_unfolded = [ "Offset", "Transform", "Z Index" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 3 )

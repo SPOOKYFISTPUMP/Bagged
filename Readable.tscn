@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Readable.gd" type="Script" id=2]
+[ext_resource path="res://schild.png" type="Texture" id=3]
+
+[node name="Readable" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+things_to_say = [  ]
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 3 )
+
+[node name="InteractionArrow" parent="." index="1"]
+visible = false
+
