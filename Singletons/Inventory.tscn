@@ -14,7 +14,6 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Script" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="."]
-visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 1.0
@@ -28,6 +27,7 @@ size_flags_vertical = 1
 use_top_left = false
 
 [node name="Panel" type="Panel" parent="CenterContainer"]
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0

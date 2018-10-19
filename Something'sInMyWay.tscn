@@ -1,9 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://BaseMap.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Obstacle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Items/Apple.tres" type="Resource" id=3]
-[ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=4]
+[ext_resource path="res://MapSwitch.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Hungry Bolk.tscn" type="PackedScene" id=3]
 
 [node name="Something'sInMyWay" instance=ExtResource( 1 )]
 
@@ -13,16 +12,14 @@ tile_data = PoolIntArray( -655362, 1, 0, -655361, 1, 0, -720896, 1, 0, -720895, 
 [node name="Collisions" parent="." index="1"]
 tile_data = PoolIntArray( -262127, 0, 0, -262126, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196592, 0, 0, -196589, 0, 0, -65539, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -131067, 0, 0, -131066, 0, 0, -131065, 0, 0, -131064, 0, 0, -131063, 0, 0, -131062, 0, 0, -131061, 0, 0, -131060, 0, 0, -131059, 0, 0, -131058, 0, 0, -131057, 0, 0, -131056, 0, 0, -131055, 0, 0, -131054, 0, 0, -131053, 0, 0, -3, 0, 0, -65517, 0, 0, 65533, 0, 0, 19, 0, 0, 131069, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 0, 65552, 0, 0, 65553, 0, 0, 65554, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0 )
 
-[node name="Obstacle" parent="." index="4" instance=ExtResource( 2 )]
-position = Vector2( 140, 0 )
-needed_item = ExtResource( 3 )
-needed_item_amount = 3
-
-[node name="MapSwitch" parent="." index="5" instance=ExtResource( 4 )]
+[node name="MapSwitch" parent="." index="4" instance=ExtResource( 2 )]
 position = Vector2( 0, -50 )
 map = "res://Main.tscn"
 
-[node name="MapSwitch2" parent="." index="6" instance=ExtResource( 4 )]
+[node name="MapSwitch2" parent="." index="5" instance=ExtResource( 2 )]
 position = Vector2( 288, -34 )
 map = "res://RocketScience.tscn"
+
+[node name="Hungry Bolk" parent="." index="6" instance=ExtResource( 3 )]
+position = Vector2( 160, 0 )
 

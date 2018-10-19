@@ -40,3 +40,17 @@ region_enabled = true
 region_rect = Rect2( 16, 16, 16, 16 )
 _sections_unfolded = [ "Region" ]
 
+[node name="6" type="Sprite" parent="."]
+position = Vector2( 9.9515, 16.7404 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 0, 16, 16 )
+_sections_unfolded = [ "Region" ]
+
+[node name="7" type="Sprite" parent="."]
+position = Vector2( -30.0485, 36.7404 )
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 48, 16, 16, 16 )
+_sections_unfolded = [ "Region" ]
+

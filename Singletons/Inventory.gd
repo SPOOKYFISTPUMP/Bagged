@@ -5,12 +5,15 @@ var quantities = {}
 
 var mysterious_item = preload("res://Items/Mysterious Item.tres")
 
+onready var item_list = $CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ItemList
+onready var panel = $CenterContainer/Panel
+
 func _ready():
 	add_item(mysterious_item)
 
 func _input(event):
 	if Game.can_interact() && event.is_action_pressed("ui_inventory"):
-		$CenterContainer.visible = true
+		$CenterContainer/Panel.visible = true
 		Game.state = Game.States.Inventory
 
 func add_item(item, quantity = 1):
@@ -31,6 +34,9 @@ func remove_item(item, quantity = 1):
 	if !space.has(item):
 		return false
 
+	if !item.consumable:
+		return true
+
 	assert(quantities.has(item))
 
 	if quantities[item] < quantity:
@@ -47,7 +53,6 @@ func remove_item(item, quantity = 1):
 
 
 func display_inventory():
-	var item_list = $CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ItemList
 	item_list.clear()
 
 	for item in space:
@@ -68,14 +73,13 @@ func _on_Close_pressed():
 	if !Game.state == Game.States.Inventory:
 		return
 
-	$CenterContainer.visible = false
+	panel.visible = false
 	Game.state = Game.States.Explore
 
 func _on_Inspect_pressed():
 	if !Game.state == Game.States.Inventory:
 		return
 
-	var item_list = $CenterContainer/Panel/MarginContainer/VBoxContainer/HBoxContainer/ItemList
 	var selected = item_list.get_selected_items()
 	var index
 
@@ -89,6 +93,6 @@ func _on_Inspect_pressed():
 		"says": space[index].description,
 	})
 
-	$CenterContainer.visible = false
+	panel.visible = false
 	yield(DialogueBox, "closed")
-	$CenterContainer.visible = true
+	panel.visible = true

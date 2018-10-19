@@ -13,6 +13,7 @@ extents = Vector2( 16, 16 )
 ]]
 script = ExtResource( 1 )
 open = false
+zoomed = false
 
 [node name="Sprite" type="Sprite" parent="."]
 texture = ExtResource( 2 )

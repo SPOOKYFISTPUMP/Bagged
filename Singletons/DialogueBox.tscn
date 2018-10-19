@@ -116,7 +116,6 @@ rect_min_size = Vector2( 260, 35 )
 text = "Things to say Things to say Things to say Things to say Things to say "
 autowrap = true
 max_lines_visible = 2
-_sections_unfolded = [ "custom_fonts/font" ]
 
 [node name="CenterContainer" type="CenterContainer" parent="Panel"]
 anchor_left = 0.0

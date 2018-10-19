@@ -11,4 +11,5 @@ title = "Knife"
 description = "This is a Knife"
 image = ExtResource( 1 )
 stackable = null
+consumable = null
 

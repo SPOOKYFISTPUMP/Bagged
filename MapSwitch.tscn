@@ -16,6 +16,7 @@ map = null
 
 [node name="InteractionArrow" parent="." index="1"]
 visible = false
+use_press_e_sprite = true
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 input_pickable = true

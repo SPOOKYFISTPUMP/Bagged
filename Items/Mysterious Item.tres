@@ -9,4 +9,5 @@ _sections_unfolded = [ "Script" ]
 title = "Mysterious Item"
 description = "I wonder what it does.."
 stackable = null
+consumable = null
 

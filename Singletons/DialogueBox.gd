@@ -7,6 +7,9 @@ var dialogue_done = true
 
 var state_before
 
+onready var who_label = $Panel/MarginContainer/VBoxContainer/Who
+onready var says_label = $Panel/MarginContainer/VBoxContainer/Says
+
 func _ready():
 	pass
 
@@ -16,7 +19,13 @@ func _process(delta):
 		play_dialogue(dialogue)
 
 func _input(event):
-	if Game.state == Game.States.Dialogue && dialogue_done && event.is_action_pressed("ui_interact"):
+	if Game.state != Game.States.Dialogue:
+		return
+
+	if !dialogue_done:
+		return
+
+	if event.is_action_pressed("ui_interact") || event.is_action_pressed("ui_accept"):
 		end_dialogue()
 
 func read_my_text(node):
@@ -35,17 +44,16 @@ func play_dialogue(dialogue):
 	$Panel.visible = true
 	$Panel/CenterContainer/DialogueArrow.visible = false
 
-	var who_label = $Panel/MarginContainer/VBoxContainer/Who
-	var says_label = $Panel/MarginContainer/VBoxContainer/Says
-
-	if dialogue.who == "":
+	if !dialogue.has("who") || dialogue.who == "":
 		who_label.visible = false
 		says_label.max_lines_visible = 3
 	else:
 		who_label.visible = true
 		says_label.max_lines_visible = 2
 
-	who_label.text = dialogue.who + ":"
+	if dialogue.has("who"):
+		who_label.text = dialogue.who + ":"
+
 	says_label.text = dialogue.says
 
 	var speed = dialogue.speed if dialogue.has("speed") else 1
@@ -53,7 +61,7 @@ func play_dialogue(dialogue):
 	$Tween.interpolate_property(says_label, "percent_visible", 0, 1, speed, Tween.TRANS_LINEAR, Tween.EASE_IN)
 	$Tween.start()
 
-func _on_Tween_tween_completed(object, key):
+func _on_Tween_tween_completed(object = null, key = null):
 	dialogue_done = true
 	$Panel/CenterContainer/DialogueArrow.visible = true
 
@@ -63,7 +71,7 @@ func end_dialogue():
 	else:
 		Game.state = state_before
 
-	$Panel/MarginContainer/VBoxContainer/Says.percent_visible = 0
+	says_label.percent_visible = 0
 	$Panel.visible = false
 
 	emit_signal("closed")

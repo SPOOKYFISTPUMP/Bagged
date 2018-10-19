@@ -1,14 +1,15 @@
 [gd_resource type="Resource" load_steps=3 format=2]
 
-[ext_resource path="res://apple.png" type="Texture" id=1]
+[ext_resource path="res://pickaxe.png" type="Texture" id=1]
 [ext_resource path="res://Items/Item.gd" type="Script" id=2]
 
 [resource]
 
 script = ExtResource( 2 )
 _sections_unfolded = [ "Script" ]
-title = "Apple"
-description = "This is an cool apple"
+title = "Pickaxe"
+description = "Can be used to destroy stone"
 image = ExtResource( 1 )
-stackable = true
+stackable = null
+consumable = null
 

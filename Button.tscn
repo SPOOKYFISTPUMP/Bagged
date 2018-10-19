@@ -16,4 +16,5 @@ _sections_unfolded = [ "Region", "Transform" ]
 
 [node name="InteractionArrow" parent="." index="1"]
 visible = false
+use_press_e_sprite = true
 

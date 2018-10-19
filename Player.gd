@@ -3,8 +3,10 @@ extends KinematicBody2D
 const MOVEMENT_SPEED = 10
 var initial_x_scale
 
+onready var sprite = get_node("Position2D")
+
 func _ready():
-	initial_x_scale = $Sprite.scale.x
+	initial_x_scale = sprite.scale.x
 
 func _process(delta):
 	handle_movement(delta)
@@ -48,8 +50,8 @@ func get_input_vector():
 func flip(x):
 	var factor = sign(x)
 
-	if $Sprite.scale.x == factor * initial_x_scale || $Tween.is_active():
+	if sprite.scale.x == factor * initial_x_scale || $Tween.is_active():
 		return
 
-	$Tween.interpolate_property($Sprite, "scale:x", $Sprite.scale.x, initial_x_scale * factor, .1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
+	$Tween.interpolate_property(sprite, "scale:x", sprite.scale.x, initial_x_scale * factor, .1, Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	$Tween.start()

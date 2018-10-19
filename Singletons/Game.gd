@@ -14,9 +14,11 @@ var flags = []
 var map_before
 
 func _ready():
+	OS.set_window_maximized(true)
+
 	if _node("Player"):
 		state = Explore
-		# intro()
+		intro()
 
 func _node(string):
 	return get_tree().current_scene.get_node(string)
@@ -33,12 +35,10 @@ func intro():
 	player.flip(-1)
 	yield(get_tree().create_timer(.3), "timeout")
 	player.flip(1)
-	yield(get_tree().create_timer(.3), "timeout")
-	player.flip(-1)
-	yield(get_tree().create_timer(.3), "timeout")
+	yield(get_tree().create_timer(.5), "timeout")
 
 	DialogueBox.dialogue_queue.push_back({
-		"who": "MaxMustermann",
+		"who": "You",
 		"says": "Where am I?"
 	})
 
@@ -62,10 +62,16 @@ func switch_map(map):
 func consumed(node):
 	assert(!was_consumed(node))
 
-	flags.push_back(node.get_path())
+	add_flag(node.get_path())
 
 func was_consumed(node):
-	return flags.has(node.get_path())
+	return has_flag(node.get_path())
+
+func add_flag(flag):
+	return flags.push_back(flag)
+
+func has_flag(flag):
+	return flags.has(flag)
 
 func can_act():
 	return [Explore, AutomaticDialogue].has(state)
@@ -79,15 +85,36 @@ func can_interact():
 func button_press():
 	var doors = get_tree().get_nodes_in_group("Door")
 
+	print("??")
+
 	for door in doors:
 		var door_path = str(door.get_path())
-		if Database.door_logic.has(door_path):
-			var buttons = Database.door_logic[door_path]
-			var valid = true
 
-			for button_path in buttons:
-				if get_node(button_path).pressed != buttons[button_path]:
-					valid = false
-			
-			if valid:
-				door.open()
+		print(door_path)
+
+		if !Database.door_logic.has(door_path):
+			continue
+
+		var buttons = Database.door_logic[door_path]
+		var valid = true
+
+		for button_path in buttons:
+			if get_node(button_path).pressed != buttons[button_path]:
+				valid = false
+		
+		if valid:
+			assert(_node("Camera"))
+			assert(_node("Player"))
+
+			state = States.Cutscene
+
+			yield(get_tree().create_timer(.5), "timeout")
+			_node("Camera").follow_node = door
+			yield(get_tree().create_timer(.5), "timeout")
+			door.open()
+			yield(get_tree().create_timer(.5), "timeout")
+
+			_node("Camera").follow_node = _node("Player")
+			state = States.Explore
+		else:
+			door.close()
